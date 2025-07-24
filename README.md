@@ -1,2 +1,2 @@
 # dspy-playground
-Prompt-free LLM orchestration
+Prompt-free LLM orchestration with DSPy
