@@ -1,4 +1,5 @@
-vector_store/
+resume_storage/
+pdf/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
