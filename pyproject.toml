@@ -16,5 +16,6 @@ dependencies = [
     "llama-index-vector-stores-elasticsearch>=0.4.3",
     "llama-index>=0.12.52",
     "mlflow>=3.2.0",
+    "numpy>=2.3.1",
     "tqdm>=4.67.1",
 ]

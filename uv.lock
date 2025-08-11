@@ -791,6 +791,7 @@ dependencies = [
     { name = "llama-index-llms-ollama" },
     { name = "llama-index-vector-stores-elasticsearch" },
     { name = "mlflow" },
+    { name = "numpy" },
     { name = "tqdm" },
 ]
 
@@ -807,6 +808,7 @@ requires-dist = [
     { name = "llama-index-llms-ollama", specifier = ">=0.6.2" },
     { name = "llama-index-vector-stores-elasticsearch", specifier = ">=0.4.3" },
     { name = "mlflow", specifier = ">=3.2.0" },
+    { name = "numpy", specifier = ">=2.3.1" },
     { name = "tqdm", specifier = ">=4.67.1" },
 ]
 
