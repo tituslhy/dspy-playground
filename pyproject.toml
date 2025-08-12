@@ -15,7 +15,11 @@ dependencies = [
     "llama-index-llms-ollama>=0.6.2",
     "llama-index-vector-stores-elasticsearch>=0.4.3",
     "llama-index>=0.12.52",
+    "math-equivalence",
     "mlflow>=3.2.0",
     "numpy>=2.3.1",
     "tqdm>=4.67.1",
 ]
+
+[tool.uv.sources]
+math-equivalence = { git = "https://github.com/hendrycks/math.git" }

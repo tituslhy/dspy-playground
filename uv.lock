@@ -790,6 +790,7 @@ dependencies = [
     { name = "llama-index-embeddings-ollama" },
     { name = "llama-index-llms-ollama" },
     { name = "llama-index-vector-stores-elasticsearch" },
+    { name = "math-equivalence" },
     { name = "mlflow" },
     { name = "numpy" },
     { name = "tqdm" },
@@ -807,6 +808,7 @@ requires-dist = [
     { name = "llama-index-embeddings-ollama", specifier = ">=0.6.0" },
     { name = "llama-index-llms-ollama", specifier = ">=0.6.2" },
     { name = "llama-index-vector-stores-elasticsearch", specifier = ">=0.4.3" },
+    { name = "math-equivalence", git = "https://github.com/hendrycks/math.git" },
     { name = "mlflow", specifier = ">=3.2.0" },
     { name = "numpy", specifier = ">=2.3.1" },
     { name = "tqdm", specifier = ">=4.67.1" },
@@ -2349,6 +2351,11 @@ sdist = { url = "https://files.pythonhosted.org/packages/ab/5e/5e53d26b42ab75491
 wheels = [
     { url = "https://files.pythonhosted.org/packages/34/75/51952c7b2d3873b44a0028b1bd26a25078c18f92f256608e8d1dc61b39fd/marshmallow-3.26.1-py3-none-any.whl", hash = "sha256:3350409f20a70a7e4e11a27661187b77cdcaeb20abca41c1454fe33636bea09c", size = 50878, upload-time = "2025-02-03T15:32:22.295Z" },
 ]
+
+[[package]]
+name = "math-equivalence"
+version = "0.0.0"
+source = { git = "https://github.com/hendrycks/math.git#357963a7f5501a6c1708cf3f3fb0cdf525642761" }
 
 [[package]]
 name = "matplotlib"
