@@ -1,0 +1,53 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "question": "What is the nearest integer to $(5+2\\sqrt7)^4$?",
+        "reasoning": "When we expand this out, we get a bunch of terms with $\\sqrt7$ in them. To avoid painful estimation, we do the following trick: Add $(5-2\\sqrt7)^4$ to this expression. We know that $(5-2\\sqrt7)^4$ is small, since $2\\sqrt7=\\sqrt{28}$ is close to $5=\\sqrt{25}$, at least compared to $6=\\sqrt{36}$. When we add these together, the $\\sqrt7$ terms magically cancel out. By the Binomial Theorem, $$(5+2\\sqrt7)^4=5^4+4\\cdot5^3\\cdot(2\\sqrt7)+6\\cdot5^2\\cdot(2\\sqrt7)^2+4\\cdot5\\cdot(2\\sqrt7)^3+(2\\sqrt7)^4$$ whereas $$(5-2\\sqrt7)^4=5^4-4\\cdot5^3\\cdot(2\\sqrt7)+6\\cdot5^2\\cdot(2\\sqrt7)^2-4\\cdot5\\cdot(2\\sqrt7)^3+(2\\sqrt7)^4.$$ Therefore, their sum is $$2(5^4+6\\cdot5^2(2\\sqrt7)^2+(2\\sqrt7)^4)=2(625+4200+784)=11218.$$ Since the term we added, $(5-2\\sqrt7)^4$, is less than a half (actually, it's less than .01), $\\boxed{11218}$ is the closest integer to $(5+2\\sqrt7)^4$.",
+        "answer": "11218"
+      },
+      {
+        "question": "Rectangle $ABCD$ has center $O$ and $AB\/AD=k$. A point is randomly chosen from the interior of rectangle $ABCD$. What is the probability that it is closer to $O$ than to any of the four vertices?  [asy]\nsize(200);\ndraw((-250,100)--(250,100)--(250,-100)--(-250,-100)--cycle);\ndot((0,0));\nlabel(\"$O$\",(0,0),N);\nlabel(\"$A$\",(-250,100),NW); label(\"$B$\",(250,100),NE); label(\"$C$\",(250,-100),SE); label(\"$D$\",(-250,-100),SW);[\/asy]",
+        "reasoning": "The original rectangle may be subdivided into four smaller congruent rectangles, all sharing $O$ as a vertex. Each of these rectangles is analogous, so we can consider our random point $P$ to be without loss of generality in the smaller rectangle with $A$ as a vertex. All points in this smaller rectangle are closer to $A$ than they are to $B$, $C$, or $D$, so we just need to determine the probability that $OP<AP$. [asy]\nsize(100);\ndraw((0,0)--(0,100)--(-250,100)--(-250,0)--cycle);\nlabel(\"$A$\",(-250,100),NW); label(\"$O$\",(0,0),SE);\ndraw((-105,100)--(-145,0));\nfill((-105,100)--(-145,0)--(0,0)--(0,100)--cycle, gray(.7));\n[\/asy] Since a $180^\\circ$ rotation about the center of the smaller rectangle takes $O$ to $A$, it takes the shaded region to the unshaded region. Therefore, exactly half the area is shaded, and the overall probability is $\\boxed{\\frac{1}{2}}$, independent of $k$.",
+        "answer": "\\frac{1}{2}"
+      },
+      {
+        "question": "A diagonal of a polyhedron is a line segment connecting two non-adjacent vertices. How many diagonals does a pentagonal prism have? [asy]\nimport three;\nsize(100);\ndefaultpen(linewidth(0.7));\ncurrentprojection = orthographic(-0.2,-1,2\/3);\n\nvoid drawPentagon (real h)\n{\n\npath3 y;\n\ny=(0,0,h)--(3,0,h)--(5,3,h)--(3,6,h)--(0,5,h)--cycle;\n\ndraw(surface(y),white,nolight);\n\ndraw(y);\n}\n\nvoid drawRectangle(triple a, triple b, real h)\n{\n\npath3 y;\n\ny=a--b--b+(0,0,h)--a+(0,0,h)--cycle;\n\ndraw(surface(y),white,black,nolight);\n}\n\ndrawRectangle((0,0,0),(0,5,0),4);\ndrawRectangle((0,0,0),(3,0,0),4);\ndrawRectangle((3,0,0),(5,3,0),4);\ndrawPentagon(4);\n\n\/\/import three; currentprojection = orthographic(25,150,100); \/\/defaultpen(linewidth(0.8)); size(100);\n\/\/void nGon(int numSides, real height){\n\/\/real angle = 360\/numSides;\n\/\/for(int i = 0; i < numSides; ++i){\n\/\/draw(dir(angle*i,0)--dir(angle*(i + 1),0));\n\/\/draw((dir(angle*i,0) + (0,0,height))--(dir(angle*(i + 1),0) + (0,0,height)));\n\/\/draw(dir(angle*i,0)--(dir(angle*i,0) + (0,0,height)));\n\/\/ }\n\/\/}\n\/\/nGon(5,2);\n[\/asy]",
+        "reasoning": "There are $5+5+5=15$ edges, so among the $\\binom{10}{2}=45$ pairs of vertices, $15$ of them are adjacent.  The other $45-15=\\boxed{30}$ pairs correspond to diagonals.",
+        "answer": "30"
+      },
+      {
+        "question": "Steve has one quarter, two nickels and three pennies. Assuming no items are free, for how many different-priced items could Steve individually pay for with exact change?",
+        "reasoning": "Steve can use no quarters or one quarter, for two possibilities.\n\nSteve can use 0, 1, or 2 nickels, for three possibilities.\n\nAnd Steve can use 0, 1, 2, or 3 pennies, for four possibilities.  That gives $2 \\cdot 3 \\cdot 4 = 24$ possible combinations.  But we must remove the combination where Steve does not use any coins, leaving us with $24 - 1 = \\boxed{23}.$",
+        "answer": "23"
+      }
+    ],
+    "signature": {
+      "instructions": "Given a set of mathematical problems that involve reasoning, counting techniques, area calculations, or probability, your task is to provide a step-by-step solution that leads to an exact numerical answer. The questions will often require you to break down the problem into simpler parts and use logical steps to arrive at the final result. Ensure your response includes the reasoning process and the final answer expressed as a common fraction, integer, or other appropriate format.",
+      "fields": [
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "2.6.27",
+      "cloudpickle": "3.1"
+    }
+  }
+}
